@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: genx
+  namespace: dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: genx
+  template:
+    metadata:
+      labels:
+        app: genx
+    spec:
+      serviceAccountName: genx-sa
+      containers:
+        - name: genx
+          image: 192.168.1.18:32000/genx:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SPRING_PROFILE_ACTIVE
+              value: dev
+          ports:
+            - containerPort: 8080
+              protocol: TCP
