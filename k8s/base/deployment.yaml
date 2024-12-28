@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: genx
-          image: registry.container-registry.svc.cluster.local:5000/genx:latest
+          image: 192.168.1.18:32000/genx:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: SPRING_PROFILE_ACTIVE
