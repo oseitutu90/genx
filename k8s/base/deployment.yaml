@@ -13,10 +13,9 @@ spec:
       labels:
         app: genx
     spec:
-      serviceAccountName: genx-sa
       containers:
         - name: genx
-          image: 192.168.1.18:32000/genx:latest
+          image: registry.container-registry.svc.cluster.local:5000/genx:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: SPRING_PROFILE_ACTIVE
@@ -24,3 +23,4 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
+      serviceAccountName: genx-sa
