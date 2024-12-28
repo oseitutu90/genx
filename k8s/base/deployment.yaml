@@ -15,11 +15,8 @@ spec:
     spec:
       containers:
         - name: genx
-          image: registry.example.com/genx:latest
-          imagePullPolicy: IfNotPresent
-          env:
-            - name: SPRING_PROFILE_ACTIVE
-              value: dev
+          image: localhost:32000/genx:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
               protocol: TCP
